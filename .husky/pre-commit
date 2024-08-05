@@ -1,1 +1,1 @@
-npx link-staged
+npx lint-staged
