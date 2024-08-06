@@ -1,6 +1,10 @@
 {
-  "extends": "next/core-web-vitals",
+  "extends": [
+    "@rocketseat/eslint-config/next", 
+    "next/core-web-vitals"
+  ],
   "rules": {
-    "no-unused-vars": "error"
+    "no-unused-vars": "error",
+    "react/react-in-jsx-scope": "off"
   }
 }
