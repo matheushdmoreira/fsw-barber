@@ -6,6 +6,8 @@ import { notFound } from "next/navigation"
 
 import { Button } from "@/app/_components/ui/button"
 
+import { ServiceItem } from "@/app/_components/service-item"
+
 interface BarbershopPageProps {
   params: {
     id: string
@@ -15,6 +17,9 @@ interface BarbershopPageProps {
 export default async function BarbershopPage({ params }: BarbershopPageProps) {
   const barbershop = await db.barbershop.findUnique({
     where: { id: params.id },
+    include: {
+      services: true,
+    },
   })
 
   if (!barbershop) {
@@ -73,6 +78,17 @@ export default async function BarbershopPage({ params }: BarbershopPageProps) {
         <h2 className="text-xs font-bold uppercase text-gray-400">Sobre Nós</h2>
 
         <p className="text-justify text-sm">{barbershop?.description}</p>
+      </div>
+
+      {/* SERVIÇOS */}
+      <div className="space-y-3 border-b border-solid p-5">
+        <h2 className="text-xs font-bold uppercase text-gray-400">Serviços</h2>
+
+        <div className="space-y-3">
+          {barbershop.services.map((service) => (
+            <ServiceItem key={service.id} service={service} />
+          ))}
+        </div>
       </div>
     </div>
   )
