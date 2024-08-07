@@ -9,7 +9,6 @@ import { BarbershopItem } from "./_components/barbershop-item"
 import { quickSearchOptions } from "./_constants/search"
 
 import { Header } from "./_components/header"
-import { Footer } from "./_components/footer"
 import { BookingItem } from "./_components/booking-item"
 
 export default async function Home() {
@@ -89,8 +88,6 @@ export default async function Home() {
           ))}
         </div>
       </div>
-
-      <Footer />
     </div>
   )
 }
