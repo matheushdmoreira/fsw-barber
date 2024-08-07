@@ -47,7 +47,7 @@ export default async function Home() {
                 height={16}
                 alt={item.title}
               />
-              Cabelo
+              {item.title}
             </Button>
           ))}
         </div>
