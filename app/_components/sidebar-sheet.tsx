@@ -1,12 +1,19 @@
 import Link from "next/link"
-import { Calendar, HomeIcon, LogOut } from "lucide-react"
+import { Calendar, HomeIcon, LogIn, LogOut } from "lucide-react"
 import Image from "next/image"
 
 import { quickSearchOptions } from "../_constants/search"
 
-import { Avatar, AvatarImage } from "./ui/avatar"
 import { Button } from "./ui/button"
 import { SheetClose, SheetContent, SheetHeader, SheetTitle } from "./ui/sheet"
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "./ui/dialog"
 
 export function SidebarSheet() {
   return (
@@ -16,14 +23,44 @@ export function SidebarSheet() {
       </SheetHeader>
 
       <div className="flex items-center gap-3 border-b border-solid py-5">
-        <Avatar className="border-2 border-solid border-primary">
+        <div className="flex w-full items-center justify-between">
+          <h2 className="text-lg font-bold">Olá, faça seu login!</h2>
+
+          <Dialog>
+            <DialogTrigger asChild>
+              <Button size="icon">
+                <LogIn size={18} />
+              </Button>
+            </DialogTrigger>
+            <DialogContent className="w-[90%] rounded-lg">
+              <DialogHeader>
+                <DialogTitle>Faça seu login</DialogTitle>
+                <DialogDescription>
+                  Conecte-se com sua conta Google.
+                </DialogDescription>
+              </DialogHeader>
+
+              <Button variant="outline" className="gap-2 font-bold">
+                <Image
+                  alt="Conecte-se com sua conta Google"
+                  src="/google.svg"
+                  width={18}
+                  height={18}
+                />
+                Google
+              </Button>
+            </DialogContent>
+          </Dialog>
+        </div>
+
+        {/* <Avatar className="border-2 border-solid border-primary">
           <AvatarImage src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8QXZhdGFyfGVufDB8fDB8fHww" />
         </Avatar>
 
         <div>
           <p className="font-bold">Matheus Moreira</p>
           <p className="text-xs">matheushdmoreira@gmail.com</p>
-        </div>
+        </div> */}
       </div>
 
       <div className="flex flex-col gap-2 border-b border-solid py-5">
