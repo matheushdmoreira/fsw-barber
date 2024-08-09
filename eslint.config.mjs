@@ -18,6 +18,7 @@ export default [
       'no-unused-vars': 'error',
       'react/react-in-jsx-scope': 'off',
       'no-var': 0,
+      '@typescript-eslint/no-explicit-any': 'off',
     },
   },
 ]
