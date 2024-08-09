@@ -101,7 +101,6 @@ export function ServiceItem({ service, barbershop }: ServiceItemProps) {
     try {
       await createBooking({
         serviceId: service.id,
-        userId: (data?.user as any).id,
         date: newDate,
       })
 
