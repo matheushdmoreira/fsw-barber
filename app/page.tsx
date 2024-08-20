@@ -1,17 +1,20 @@
 import Image from "next/image"
 
 import { db } from "./_lib/prisma"
+import { format } from "date-fns"
+import { ptBR } from "date-fns/locale"
+import { getServerSession } from "next-auth"
+import Link from "next/link"
+
+import { authOptions } from "./_lib/auth"
 
 import { Button } from "./_components/ui/button"
+
 import { BarbershopItem } from "./_components/barbershop-item"
 import { quickSearchOptions } from "./_constants/search"
-
 import { Header } from "./_components/header"
 import { BookingItem } from "./_components/booking-item"
 import { Search } from "./_components/search"
-import Link from "next/link"
-import { getServerSession } from "next-auth"
-import { authOptions } from "./_lib/auth"
 
 export default async function Home() {
   const session = await getServerSession(authOptions)
@@ -49,8 +52,15 @@ export default async function Home() {
       <Header />
 
       <div className="p-5 lg:m-auto lg:max-w-[1124px] lg:p-7 lg:px-0">
-        <h2 className="text-xl font-bold">Olá, Matheus</h2>
-        <p>Sexta-feira, 2 de Agosto</p>
+        <h2 className="text-xl font-bold">
+          Olá, {session?.user ? session.user.name : "bem vindo"}
+        </h2>
+        <p>
+          <span className="capitalize">
+            {format(new Date(), "EEEE", { locale: ptBR })}
+          </span>
+          {format(new Date(), ", dd 'de' MMMM", { locale: ptBR })}
+        </p>
 
         {/* BUSCA */}
         <div className="mt-5">
