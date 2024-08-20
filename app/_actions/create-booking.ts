@@ -27,4 +27,5 @@ export async function createBooking({ serviceId, date }: CreateBookingParams) {
     },
   })
   revalidatePath("/barbershops/[id]")
+  revalidatePath("/bookings")
 }

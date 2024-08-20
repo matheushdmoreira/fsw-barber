@@ -59,7 +59,7 @@ export default async function BookingsPage() {
       <div className="space-y-3 p-5">
         <h1 className="text-xl font-bold">Agendamentos</h1>
 
-        {confirmedBookings && (
+        {confirmedBookings.length > 0 && (
           <>
             <h2 className="mb-3 mt-6 text-xs font-bold uppercase text-gray-400">
               Confirmados
@@ -70,7 +70,7 @@ export default async function BookingsPage() {
           </>
         )}
 
-        {concludedBookings && (
+        {concludedBookings.length > 0 && (
           <>
             <h2 className="mb-3 mt-6 text-xs font-bold uppercase text-gray-400">
               Finalizados
