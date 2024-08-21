@@ -1,10 +1,10 @@
-"use server"
+'use server'
 
-import { revalidatePath } from "next/cache"
-import { getServerSession } from "next-auth"
+import { revalidatePath } from 'next/cache'
+import { getServerSession } from 'next-auth'
 
-import { db } from "../_lib/prisma"
-import { authOptions } from "../_lib/auth"
+import { db } from '../_lib/prisma'
+import { authOptions } from '../_lib/auth'
 
 interface CreateBookingParams {
   serviceId: string
@@ -15,7 +15,7 @@ export async function createBooking({ serviceId, date }: CreateBookingParams) {
   const user = await getServerSession(authOptions)
 
   if (!user) {
-    throw new Error("Usuário não autenticado")
+    throw new Error('Usuário não autenticado')
   }
 
   await db.booking.create({
@@ -26,6 +26,6 @@ export async function createBooking({ serviceId, date }: CreateBookingParams) {
       userId: (user.user as any).id,
     },
   })
-  revalidatePath("/barbershops/[id]")
-  revalidatePath("/bookings")
+  revalidatePath('/barbershops/[id]')
+  revalidatePath('/bookings')
 }

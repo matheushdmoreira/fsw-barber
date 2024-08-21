@@ -1,12 +1,12 @@
-"use client"
+'use client'
 
-import { useSession } from "next-auth/react"
-import { Calendar, UserCircle } from "lucide-react"
+import { useSession } from 'next-auth/react'
+import { Calendar, UserCircle } from 'lucide-react'
 
-import { Button } from "./ui/button"
-import { Dialog, DialogContent, DialogTrigger } from "./ui/dialog"
-import { SignInDialog } from "./sign-in-dialog"
-import { Avatar, AvatarImage } from "./ui/avatar"
+import { Button } from './ui/button'
+import { Dialog, DialogContent, DialogTrigger } from './ui/dialog'
+import { SignInDialog } from './sign-in-dialog'
+import { Avatar, AvatarImage } from './ui/avatar'
 
 export function Navbar() {
   const { data } = useSession()
@@ -35,7 +35,7 @@ export function Navbar() {
         <div className="flex items-center gap-2">
           <Avatar className="h-[36px] w-[36px]">
             <AvatarImage
-              src={data.user.image ? data.user.image : "/avatar.jpg"}
+              src={data.user.image ? data.user.image : '/avatar.jpg'}
             />
           </Avatar>
 

@@ -1,12 +1,12 @@
-import Image from "next/image"
-import { MenuIcon } from "lucide-react"
+import Image from 'next/image'
+import { MenuIcon } from 'lucide-react'
 
-import { Card, CardContent } from "./ui/card"
-import { Button } from "./ui/button"
-import { Sheet, SheetTrigger } from "./ui/sheet"
-import { SidebarSheet } from "./sidebar-sheet"
-import Link from "next/link"
-import { Navbar } from "./navbar"
+import { Card, CardContent } from './ui/card'
+import { Button } from './ui/button'
+import { Sheet, SheetTrigger } from './ui/sheet'
+import { SidebarSheet } from './sidebar-sheet'
+import Link from 'next/link'
+import { Navbar } from './navbar'
 
 export function Header() {
   return (

@@ -1,17 +1,17 @@
-"use client"
+'use client'
 
-import Link from "next/link"
-import { Calendar, HomeIcon, LogIn, LogOut } from "lucide-react"
-import Image from "next/image"
+import Link from 'next/link'
+import { Calendar, HomeIcon, LogIn, LogOut } from 'lucide-react'
+import Image from 'next/image'
 
-import { quickSearchOptions } from "../_constants/search"
+import { quickSearchOptions } from '../_constants/search'
 
-import { Button } from "./ui/button"
-import { SheetClose, SheetContent, SheetHeader, SheetTitle } from "./ui/sheet"
-import { Dialog, DialogContent, DialogTrigger } from "./ui/dialog"
-import { signOut, useSession } from "next-auth/react"
-import { Avatar, AvatarImage } from "./ui/avatar"
-import { SignInDialog } from "./sign-in-dialog"
+import { Button } from './ui/button'
+import { SheetClose, SheetContent, SheetHeader, SheetTitle } from './ui/sheet'
+import { Dialog, DialogContent, DialogTrigger } from './ui/dialog'
+import { signOut, useSession } from 'next-auth/react'
+import { Avatar, AvatarImage } from './ui/avatar'
+import { SignInDialog } from './sign-in-dialog'
 
 export function SidebarSheet() {
   const { data } = useSession()
@@ -47,7 +47,7 @@ export function SidebarSheet() {
           <>
             <Avatar className="border-2 border-solid border-primary">
               <AvatarImage
-                src={data.user.image ? data.user.image : "/avatar.jpg"}
+                src={data.user.image ? data.user.image : '/avatar.jpg'}
               />
             </Avatar>
 

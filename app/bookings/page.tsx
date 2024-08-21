@@ -1,11 +1,11 @@
-import { getServerSession } from "next-auth"
-import { notFound } from "next/navigation"
+import { getServerSession } from 'next-auth'
+import { notFound } from 'next/navigation'
 
-import { authOptions } from "../_lib/auth"
+import { authOptions } from '../_lib/auth'
 
-import { Header } from "../_components/header"
-import { db } from "../_lib/prisma"
-import { BookingItem } from "../_components/booking-item"
+import { Header } from '../_components/header'
+import { db } from '../_lib/prisma'
+import { BookingItem } from '../_components/booking-item'
 
 export default async function BookingsPage() {
   const session = await getServerSession(authOptions)
@@ -29,7 +29,7 @@ export default async function BookingsPage() {
       },
     },
     orderBy: {
-      date: "asc",
+      date: 'asc',
     },
   })
 
@@ -48,7 +48,7 @@ export default async function BookingsPage() {
       },
     },
     orderBy: {
-      date: "asc",
+      date: 'asc',
     },
   })
 

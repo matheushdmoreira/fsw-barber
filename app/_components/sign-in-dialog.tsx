@@ -1,11 +1,11 @@
-import { signIn } from "next-auth/react"
-import { Button } from "./ui/button"
-import { DialogHeader, DialogTitle, DialogDescription } from "./ui/dialog"
-import Image from "next/image"
+import { signIn } from 'next-auth/react'
+import { Button } from './ui/button'
+import { DialogHeader, DialogTitle, DialogDescription } from './ui/dialog'
+import Image from 'next/image'
 
 export function SignInDialog() {
   async function handleLogInWithGoogleClick() {
-    await signIn("google")
+    await signIn('google')
   }
 
   return (

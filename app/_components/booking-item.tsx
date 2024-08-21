@@ -1,16 +1,16 @@
-"use client"
+'use client'
 
-import { useState } from "react"
-import { Prisma } from "@prisma/client"
-import { format, isFuture } from "date-fns"
-import Image from "next/image"
-import { ptBR } from "date-fns/locale"
+import { useState } from 'react'
+import { Prisma } from '@prisma/client'
+import { format, isFuture } from 'date-fns'
+import Image from 'next/image'
+import { ptBR } from 'date-fns/locale'
 
-import { deleteBooking } from "../_actions/delete-booking"
+import { deleteBooking } from '../_actions/delete-booking'
 
-import { Card, CardContent } from "./ui/card"
-import { Avatar, AvatarImage } from "./ui/avatar"
-import { Badge } from "./ui/badge"
+import { Card, CardContent } from './ui/card'
+import { Avatar, AvatarImage } from './ui/avatar'
+import { Badge } from './ui/badge'
 import {
   Sheet,
   SheetClose,
@@ -19,8 +19,8 @@ import {
   SheetHeader,
   SheetTitle,
   SheetTrigger,
-} from "./ui/sheet"
-import { Button } from "./ui/button"
+} from './ui/sheet'
+import { Button } from './ui/button'
 import {
   Dialog,
   DialogClose,
@@ -30,10 +30,10 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from "./ui/dialog"
+} from './ui/dialog'
 
-import { PhoneItem } from "./phone-item"
-import { toast } from "sonner"
+import { PhoneItem } from './phone-item'
+import { toast } from 'sonner'
 
 interface BookingItemProps {
   booking: Prisma.BookingGetPayload<{
@@ -58,10 +58,10 @@ export function BookingItem({ booking }: BookingItemProps) {
     try {
       await deleteBooking(booking.id)
       setIsSheetOpen(false)
-      toast.success("Reserva cancelada com sucesso!")
+      toast.success('Reserva cancelada com sucesso!')
     } catch (error) {
       console.log(error)
-      toast.error("Erro ao cancelar a reserva. Tente novamente.")
+      toast.error('Erro ao cancelar a reserva. Tente novamente.')
     }
   }
 
@@ -78,9 +78,9 @@ export function BookingItem({ booking }: BookingItemProps) {
             <div className="flex flex-col gap-2 py-5 pl-5">
               <Badge
                 className="w-fit"
-                variant={isConfirmed ? "default" : "secondary"}
+                variant={isConfirmed ? 'default' : 'secondary'}
               >
-                {isConfirmed ? "Confirmado" : "Finalizado"}
+                {isConfirmed ? 'Confirmado' : 'Finalizado'}
               </Badge>
 
               <h3 className="text-left font-bold">{booking.service.name}</h3>
@@ -97,13 +97,13 @@ export function BookingItem({ booking }: BookingItemProps) {
             {/* RIGHT */}
             <div className="flex flex-col items-center justify-center border-l-2 border-solid px-5">
               <p className="text-sm capitalize">
-                {format(booking.date, "MMMM", { locale: ptBR })}
+                {format(booking.date, 'MMMM', { locale: ptBR })}
               </p>
               <p className="text-2xl">
-                {format(booking.date, "dd", { locale: ptBR })}
+                {format(booking.date, 'dd', { locale: ptBR })}
               </p>
               <p className="text-sm">
-                {format(booking.date, "HH:mm", { locale: ptBR })}
+                {format(booking.date, 'HH:mm', { locale: ptBR })}
               </p>
             </div>
           </CardContent>
@@ -140,9 +140,9 @@ export function BookingItem({ booking }: BookingItemProps) {
         <div className="mt-6">
           <Badge
             className="w-fit"
-            variant={isConfirmed ? "default" : "secondary"}
+            variant={isConfirmed ? 'default' : 'secondary'}
           >
-            {isConfirmed ? "Confirmado" : "Finalizado"}
+            {isConfirmed ? 'Confirmado' : 'Finalizado'}
           </Badge>
 
           <Card className="mb-6 mt-3">
@@ -150,9 +150,9 @@ export function BookingItem({ booking }: BookingItemProps) {
               <div className="flex items-center justify-between">
                 <h2 className="font-bold">{booking.service.name}</h2>
                 <p className="text-sm font-bold">
-                  {Intl.NumberFormat("pt-BR", {
-                    style: "currency",
-                    currency: "BRL",
+                  {Intl.NumberFormat('pt-BR', {
+                    style: 'currency',
+                    currency: 'BRL',
                   }).format(Number(booking.service.price))}
                 </p>
               </div>
@@ -169,7 +169,7 @@ export function BookingItem({ booking }: BookingItemProps) {
               <div className="flex items-center justify-between">
                 <p className="text-sm text-gray-400">Horário</p>
                 <p className="text-sm">
-                  {format(booking.date, "HH:mm", { locale: ptBR })}
+                  {format(booking.date, 'HH:mm', { locale: ptBR })}
                 </p>
               </div>
 
