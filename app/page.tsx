@@ -41,7 +41,7 @@ export default async function Home() {
       <Header />
 
       <>
-        <div className="lg:bg-hero lg:bg-[center_top_-3rem] lg:py-16">
+        <div className="lg:bg-hero lg:bg-cover lg:bg-[center_top_-7rem] lg:py-16">
           <div className="w-full p-5 lg:m-auto lg:flex lg:w-[1146px] lg:max-w-[96%] lg:gap-32 lg:p-0">
             <div className="lg:flex-1">
               <h2 className="text-xl font-bold lg:text-2xl">
