@@ -3,6 +3,13 @@ import { format } from 'date-fns'
 import { ptBR } from 'date-fns/locale'
 import { getServerSession } from 'next-auth'
 import Link from 'next/link'
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from './_components/ui/carousel'
 
 import { authOptions } from './_lib/auth'
 import { db } from './_lib/prisma'
@@ -36,7 +43,7 @@ export default async function Home() {
       <>
         <div className="lg:bg-hero lg:bg-[center_top_-3rem] lg:py-16">
           <div className="w-full p-5 lg:m-auto lg:flex lg:w-[1146px] lg:max-w-[96%] lg:gap-32 lg:p-0">
-            <div className="lg:w-[440px]">
+            <div className="lg:flex-1">
               <h2 className="text-xl font-bold lg:text-2xl">
                 Olá, {session?.user ? session.user.name : 'bem vindo'}
               </h2>
@@ -103,16 +110,29 @@ export default async function Home() {
               )}
             </div>
 
-            <div className="lg:flex-1 lg:overflow-hidden">
+            <div className="w-full lg:w-[617px]">
               <h2 className="mb-3 mt-6 text-xs font-bold uppercase text-gray-400 lg:mb-6 lg:mt-0 lg:text-sm">
                 Recomendados
               </h2>
 
-              <div className="flex gap-4 overflow-y-auto lg:gap-5 [&::-webkit-scrollbar]:hidden">
-                {barbershops.map((barbershop) => (
-                  <BarbershopItem key={barbershop.id} barbershop={barbershop} />
-                ))}
-              </div>
+              <Carousel
+                opts={{
+                  align: 'start',
+                }}
+              >
+                <CarouselContent>
+                  {barbershops.map((barbershop) => (
+                    <CarouselItem
+                      key={barbershop.id}
+                      className="basis-1/2 md:basis-1/3 lg:basis-2/5"
+                    >
+                      <BarbershopItem barbershop={barbershop} />
+                    </CarouselItem>
+                  ))}
+                </CarouselContent>
+                <CarouselPrevious className="text-md hidden h-12 w-12 disabled:opacity-0 lg:left-[-23px] lg:flex" />
+                <CarouselNext className="text-md hidden h-12 w-12 disabled:opacity-0 lg:right-[-23px] lg:flex" />
+              </Carousel>
             </div>
           </div>
         </div>
@@ -122,11 +142,20 @@ export default async function Home() {
             Populares
           </h2>
 
-          <div className="flex gap-4 overflow-y-auto lg:gap-5 [&::-webkit-scrollbar]:hidden">
-            {popularBarbershops.map((barbershop) => (
-              <BarbershopItem key={barbershop.id} barbershop={barbershop} />
-            ))}
-          </div>
+          <Carousel>
+            <CarouselContent>
+              {popularBarbershops.map((barbershop) => (
+                <CarouselItem
+                  key={barbershop.id}
+                  className="basis-1/2 md:basis-1/3 lg:basis-1/5"
+                >
+                  <BarbershopItem barbershop={barbershop} />
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <CarouselPrevious className="text-md hidden h-12 w-12 disabled:opacity-0 lg:left-[-23px] lg:flex" />
+            <CarouselNext className="text-md hidden h-12 w-12 disabled:opacity-0 lg:right-[-23px] lg:flex" />
+          </Carousel>
         </div>
       </>
     </div>
