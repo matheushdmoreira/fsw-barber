@@ -11,7 +11,7 @@ import { Navbar } from './navbar'
 export function Header() {
   return (
     <Card>
-      <CardContent className="flex flex-row items-center justify-between p-5 lg:m-auto lg:max-w-[1124px] lg:p-7 lg:px-0">
+      <CardContent className="flex flex-row items-center justify-between p-5 lg:m-auto lg:w-[1146px] lg:max-w-[94%] lg:p-7 lg:px-0">
         <Link href="/">
           <Image alt="FSW Barber" src="/logo.png" width={120} height={18} />
         </Link>

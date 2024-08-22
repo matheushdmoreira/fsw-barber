@@ -33,92 +33,102 @@ export default async function Home() {
     <div>
       <Header />
 
-      <div className="p-5 lg:m-auto lg:max-w-[1124px] lg:p-7 lg:px-0">
-        <h2 className="text-xl font-bold">
-          Olá, {session?.user ? session.user.name : 'bem vindo'}
-        </h2>
-        <p>
-          <span className="capitalize">
-            {format(new Date(), 'EEEE', { locale: ptBR })}
-          </span>
-          {format(new Date(), ", dd 'de' MMMM", { locale: ptBR })}
-        </p>
+      <>
+        <div className="lg:bg-hero lg:bg-[center_top_-3rem] lg:py-16">
+          <div className="w-full p-5 lg:m-auto lg:flex lg:w-[1146px] lg:max-w-[96%] lg:gap-32 lg:p-0">
+            <div className="lg:w-[440px]">
+              <h2 className="text-xl font-bold lg:text-2xl">
+                Olá, {session?.user ? session.user.name : 'bem vindo'}
+              </h2>
+              <p>
+                <span className="capitalize">
+                  {format(new Date(), 'EEEE', { locale: ptBR })}
+                </span>
+                {format(new Date(), ", dd 'de' MMMM", { locale: ptBR })}
+              </p>
 
-        {/* BUSCA */}
-        <div className="mt-5">
-          <Search />
-        </div>
+              {/* BUSCA */}
+              <div className="mt-5 lg:mt-10">
+                <Search />
+              </div>
 
-        {/* BUSCA RAPIDA */}
-        <div className="mt-6 flex gap-3 overflow-y-auto lg:hidden [&::-webkit-scrollbar]:hidden">
-          {quickSearchOptions.map((item) => (
-            <Button
-              key={item.title}
-              className="gap-2"
-              variant="secondary"
-              asChild
-            >
-              <Link href={`/barbershops?service=${item.title}`}>
+              {/* BUSCA RAPIDA */}
+              <div className="mt-6 flex gap-3 overflow-y-auto lg:hidden [&::-webkit-scrollbar]:hidden">
+                {quickSearchOptions.map((item) => (
+                  <Button
+                    key={item.title}
+                    className="gap-2"
+                    variant="secondary"
+                    asChild
+                  >
+                    <Link href={`/barbershops?service=${item.title}`}>
+                      <Image
+                        src={item.imageUrl}
+                        width={16}
+                        height={16}
+                        alt={item.title}
+                      />
+                      {item.title}
+                    </Link>
+                  </Button>
+                ))}
+              </div>
+
+              {/* IMAGEM */}
+              <div className="relative mt-6 h-[150px] w-full lg:hidden">
                 <Image
-                  src={item.imageUrl}
-                  width={16}
-                  height={16}
-                  alt={item.title}
+                  alt="Agende nos melhores com FSW Barber"
+                  src="/banner-01.png"
+                  fill
+                  className="rounded-xl object-cover"
                 />
-                {item.title}
-              </Link>
-            </Button>
-          ))}
-        </div>
+              </div>
 
-        {/* IMAGEM */}
-        <div className="relative mt-6 h-[150px] w-full lg:hidden">
-          <Image
-            alt="Agende nos melhores com FSW Barber"
-            src="/banner-01.png"
-            fill
-            className="rounded-xl object-cover"
-          />
-        </div>
+              {confirmedBookings.length > 0 && (
+                <>
+                  <h2 className="mb-3 mt-6 text-xs font-bold uppercase text-gray-400 lg:mt-10">
+                    Agendamentos
+                  </h2>
 
-        {confirmedBookings.length > 0 && (
-          <>
-            <h2 className="mb-3 mt-6 text-xs font-bold uppercase text-gray-400">
-              Agendamentos
-            </h2>
-
-            {/* AGENDAMENTO */}
-            <div className="flex gap-3 overflow-x-auto [&::-webkit-scrollbar]:hidden">
-              {confirmedBookings.map((booking) => (
-                <BookingItem
-                  key={booking.id}
-                  booking={JSON.parse(JSON.stringify(booking))}
-                />
-              ))}
+                  {/* AGENDAMENTO */}
+                  <div className="flex gap-3 overflow-x-auto [&::-webkit-scrollbar]:hidden">
+                    {confirmedBookings.map((booking) => (
+                      <BookingItem
+                        key={booking.id}
+                        booking={JSON.parse(JSON.stringify(booking))}
+                      />
+                    ))}
+                  </div>
+                </>
+              )}
             </div>
-          </>
-        )}
 
-        <h2 className="mb-3 mt-6 text-xs font-bold uppercase text-gray-400">
-          Recomendados
-        </h2>
+            <div className="lg:flex-1 lg:overflow-hidden">
+              <h2 className="mb-3 mt-6 text-xs font-bold uppercase text-gray-400 lg:mb-6 lg:mt-0 lg:text-sm">
+                Recomendados
+              </h2>
 
-        <div className="flex gap-4 overflow-y-auto [&::-webkit-scrollbar]:hidden">
-          {barbershops.map((barbershop) => (
-            <BarbershopItem key={barbershop.id} barbershop={barbershop} />
-          ))}
+              <div className="flex gap-4 overflow-y-auto lg:gap-5 [&::-webkit-scrollbar]:hidden">
+                {barbershops.map((barbershop) => (
+                  <BarbershopItem key={barbershop.id} barbershop={barbershop} />
+                ))}
+              </div>
+            </div>
+          </div>
         </div>
 
-        <h2 className="mb-3 mt-6 text-xs font-bold uppercase text-gray-400">
-          Populares
-        </h2>
+        <div className="p-5 lg:m-auto lg:w-[1146px] lg:max-w-[96%] lg:p-0 lg:py-10">
+          <h2 className="mb-3 mt-6 text-xs font-bold uppercase text-gray-400 lg:mt-0 lg:text-sm">
+            Populares
+          </h2>
 
-        <div className="flex gap-4 overflow-y-auto [&::-webkit-scrollbar]:hidden">
-          {popularBarbershops.map((barbershop) => (
-            <BarbershopItem key={barbershop.id} barbershop={barbershop} />
-          ))}
+          <div className="flex gap-4 overflow-y-auto lg:gap-5 [&::-webkit-scrollbar]:hidden">
+            {popularBarbershops.map((barbershop) => (
+              <BarbershopItem key={barbershop.id} barbershop={barbershop} />
+            ))}
+          </div>
         </div>
-      </div>
+      </>
     </div>
   )
 }

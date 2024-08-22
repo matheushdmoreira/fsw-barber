@@ -7,15 +7,18 @@ import { Button } from './ui/button'
 import { Dialog, DialogContent, DialogTrigger } from './ui/dialog'
 import { SignInDialog } from './sign-in-dialog'
 import { Avatar, AvatarImage } from './ui/avatar'
+import Link from 'next/link'
 
 export function Navbar() {
   const { data } = useSession()
 
   return (
     <div className="hidden items-center gap-6 lg:flex">
-      <Button className="justify-start gap-2" variant="ghost">
-        <Calendar size={18} />
-        Agendamentos
+      <Button className="justify-start gap-2" variant="ghost" asChild>
+        <Link href="/bookings">
+          <Calendar size={18} />
+          Agendamentos
+        </Link>
       </Button>
 
       {!data?.user ? (

@@ -12,10 +12,10 @@ interface BarberShopItemProps {
 
 export function BarbershopItem({ barbershop }: BarberShopItemProps) {
   return (
-    <Card className="min-w-[167px] rounded-2xl">
+    <Card className="min-w-[167px] rounded-2xl lg:min-w-[213px]">
       <CardContent className="p-1 pb-0">
         {/* IMAGEM */}
-        <div className="relative h-[159px] w-full">
+        <div className="relative h-[160px] w-full">
           <Image
             alt={barbershop.name}
             src={barbershop.imageUrl}
@@ -36,7 +36,9 @@ export function BarbershopItem({ barbershop }: BarberShopItemProps) {
         {/* TEXTO */}
         <div className="px-1 py-3">
           <h3 className="truncate font-semibold">{barbershop.name}</h3>
-          <p className="truncate text-sm text-gray-400">{barbershop.address}</p>
+          <p className="truncate text-sm text-gray-400 lg:mt-1">
+            {barbershop.address}
+          </p>
 
           <Button variant="secondary" className="mt-3 w-full" asChild>
             <Link href={`/barbershops/${barbershop.id}`}>Reservar</Link>
