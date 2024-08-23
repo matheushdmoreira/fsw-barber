@@ -3,7 +3,6 @@
 import { useState } from 'react'
 import { Prisma } from '@prisma/client'
 import { format, isFuture } from 'date-fns'
-import Image from 'next/image'
 import { ptBR } from 'date-fns/locale'
 
 import { deleteBooking } from '../_actions/delete-booking'
@@ -35,6 +34,7 @@ import {
 import { PhoneItem } from './phone-item'
 import { toast } from 'sonner'
 import { BookingSummary } from './booking-summary'
+import { BarbershopMapInfo } from './barbershop-map-info'
 
 interface BookingItemProps {
   booking: Prisma.BookingGetPayload<{
@@ -116,26 +116,8 @@ export function BookingItem({ booking }: BookingItemProps) {
           <SheetTitle className="text-left">Informações da Reserva</SheetTitle>
         </SheetHeader>
 
-        <div className="relative mt-6 flex h-[180px] w-full items-end">
-          <Image
-            alt={`Mapa da barbearia ${barbershop.name}`}
-            src="/map.png"
-            fill
-            className="rounded-xl object-cover"
-          />
-
-          <Card className="z-50 mx-5 mb-3 w-full rounded-xl">
-            <CardContent className="flex items-center gap-3 px-5 py-3">
-              <Avatar>
-                <AvatarImage src={barbershop.imageUrl} />
-              </Avatar>
-
-              <div>
-                <h3 className="font-bold">{barbershop.name}</h3>
-                <p className="text-xs">{barbershop.address}</p>
-              </div>
-            </CardContent>
-          </Card>
+        <div className="mt-6">
+          <BarbershopMapInfo barbershop={barbershop} />
         </div>
 
         <div className="mt-6">

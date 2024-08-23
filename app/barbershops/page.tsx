@@ -42,7 +42,7 @@ export default async function BarbershopsPage({
 
   return (
     <div>
-      <Header />
+      <Header showSearch />
 
       <div className="px-5 py-6">
         <Search />
