@@ -214,10 +214,12 @@ export function ServiceItem({ service, barbershop }: ServiceItemProps) {
                 </Button>
                 <SheetContent className="px-0">
                   <SheetHeader>
-                    <SheetTitle>Fazer Reserva</SheetTitle>
+                    <SheetTitle className="text-center">
+                      Fazer Reserva
+                    </SheetTitle>
                   </SheetHeader>
 
-                  <div className="border-b border-solid py-5">
+                  <div className="w-full border-b border-solid py-5">
                     <Calendar
                       mode="single"
                       locale={ptBR}
@@ -230,6 +232,9 @@ export function ServiceItem({ service, barbershop }: ServiceItemProps) {
                           textTransform: 'capitalize',
                         },
                         cell: {
+                          width: '100%',
+                        },
+                        month: {
                           width: '100%',
                         },
                         button: {
