@@ -59,7 +59,7 @@ export default async function Home() {
                 <Search />
               </div>
 
-              {/* BUSCA RAPIDA */}
+              {/* BUSCA RÁPIDA */}
               <div className="mt-6 flex gap-3 overflow-y-auto lg:hidden [&::-webkit-scrollbar]:hidden">
                 {quickSearchOptions.map((item) => (
                   <Button
@@ -142,12 +142,16 @@ export default async function Home() {
             Populares
           </h2>
 
-          <Carousel>
+          <Carousel
+            opts={{
+              align: 'start',
+            }}
+          >
             <CarouselContent>
               {popularBarbershops.map((barbershop) => (
                 <CarouselItem
                   key={barbershop.id}
-                  className="basis-1/2 md:basis-1/3 lg:basis-1/5"
+                  className="basis-1/2 md:basis-1/3 lg:basis-1/4 xl:basis-1/5"
                 >
                   <BarbershopItem barbershop={barbershop} />
                 </CarouselItem>
