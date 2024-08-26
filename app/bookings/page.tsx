@@ -28,8 +28,8 @@ export default async function BookingsPage() {
       <Header />
 
       <BookingsList
-        confirmedBookings={confirmedBookings}
-        concludedBookings={concludedBookings}
+        confirmedBookings={JSON.parse(JSON.stringify(confirmedBookings))}
+        concludedBookings={JSON.parse(JSON.stringify(concludedBookings))}
       />
     </>
   )
