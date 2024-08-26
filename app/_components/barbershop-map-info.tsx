@@ -18,7 +18,7 @@ export function BarbershopMapInfo({ barbershop }: BarbershopMapInfoProps) {
         className="rounded-xl object-cover"
       />
 
-      <Card className="z-50 mx-5 mb-3 w-full rounded-xl">
+      <Card className="z-50 mx-5 mb-3 w-full rounded-xl lg:mx-12 lg:mb-5">
         <CardContent className="flex items-center gap-3 px-5 py-3">
           <Avatar>
             <AvatarImage src={barbershop.imageUrl} />
