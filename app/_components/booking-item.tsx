@@ -145,7 +145,7 @@ export function BookingItem({ booking }: BookingItemProps) {
           )}
         </div>
         <SheetFooter>
-          <div className="mt-6 flex items-center gap-3">
+          <div className="mt-6 flex w-full items-center gap-3">
             <SheetClose asChild>
               <Button variant="outline" className="w-full">
                 Voltar

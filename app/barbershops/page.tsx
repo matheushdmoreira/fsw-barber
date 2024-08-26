@@ -29,7 +29,7 @@ export default async function BarbershopsPage({
               services: {
                 some: {
                   name: {
-                    contains: searchParams?.service,
+                    contains: searchParams.service,
                     mode: 'insensitive',
                   },
                 },

@@ -1,3 +1,4 @@
+import { Metadata } from 'next'
 import Image from 'next/image'
 import { format } from 'date-fns'
 import { ptBR } from 'date-fns/locale'
@@ -23,6 +24,10 @@ import { BookingItem } from './_components/booking-item'
 import { Search } from './_components/search'
 
 import { getConfirmedBookings } from './_data/get-confirmed-bookings'
+
+export const metadata: Metadata = {
+  title: 'FSW Barber - Home',
+}
 
 export default async function Home() {
   const session = await getServerSession(authOptions)

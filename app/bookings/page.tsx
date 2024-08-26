@@ -8,6 +8,11 @@ import { BookingItem } from '../_components/booking-item'
 
 import { getConfirmedBookings } from '../_data/get-confirmed-bookings'
 import { getConcludedBookings } from '../_data/get-concluded-bookings'
+import { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'FSW Barber - Agendamentos',
+}
 
 export default async function BookingsPage() {
   const session = await getServerSession(authOptions)

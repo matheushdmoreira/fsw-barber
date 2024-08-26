@@ -1,3 +1,4 @@
+import type { Metadata, ResolvingMetadata } from 'next'
 import { ChevronLeft, MapPinIcon, MenuIcon, StarIcon } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -24,6 +25,35 @@ import { BarbershopMapInfo } from '@/app/_components/barbershop-map-info'
 interface BarbershopPageProps {
   params: {
     id: string
+  }
+}
+
+export async function generateMetadata(
+  { params }: BarbershopPageProps,
+  parent: ResolvingMetadata,
+): Promise<Metadata> {
+  // read route params
+  const id = params.id
+
+  // fetch data
+  const barbershop = await db.barbershop.findUnique({
+    where: { id },
+    include: {
+      services: true,
+    },
+  })
+
+  // optionally access and extend (rather than replace) parent metadata
+  const previousImages = (await parent).openGraph?.images || []
+
+  return {
+    title: 'FSW Barber - ' + barbershop?.name,
+    openGraph: {
+      images: [
+        barbershop?.imageUrl ? barbershop.imageUrl : '',
+        ...previousImages,
+      ],
+    },
   }
 }
 
