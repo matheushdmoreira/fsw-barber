@@ -115,7 +115,7 @@ export default async function Home() {
               )}
             </div>
 
-            <div className="w-full lg:w-[617px]">
+            <div className="w-full lg:w-[596px]">
               <h2 className="mb-3 mt-6 text-xs font-bold uppercase text-gray-400 lg:mb-6 lg:mt-0 lg:text-sm">
                 Recomendados
               </h2>

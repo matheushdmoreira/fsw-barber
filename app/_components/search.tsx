@@ -40,7 +40,7 @@ export function Search() {
           render={({ field }) => (
             <FormItem className="w-full">
               <FormControl>
-                <Input placeholder="Faça sua busca..." {...field} />
+                <Input placeholder="Buscar Barbearias" {...field} />
               </FormControl>
 
               <FormMessage />
