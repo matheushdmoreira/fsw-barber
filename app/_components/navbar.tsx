@@ -1,13 +1,13 @@
 'use client'
 
-import { useSession } from 'next-auth/react'
 import { Calendar, UserCircle } from 'lucide-react'
+import Link from 'next/link'
+import { useSession } from 'next-auth/react'
 
-import { Button } from './ui/button'
-import { Dialog, DialogContent, DialogTrigger } from './ui/dialog'
 import { SignInDialog } from './sign-in-dialog'
 import { Avatar, AvatarImage } from './ui/avatar'
-import Link from 'next/link'
+import { Button } from './ui/button'
+import { Dialog, DialogContent, DialogTrigger } from './ui/dialog'
 
 export function Navbar() {
   const { data } = useSession()

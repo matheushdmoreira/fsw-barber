@@ -1,12 +1,22 @@
 'use client'
 
-import { useEffect, useMemo, useState } from 'react'
 import { Barbershop, BarbershopService, Booking } from '@prisma/client'
-import Image from 'next/image'
-import { ptBR } from 'date-fns/locale'
 import { isPast, isToday, set } from 'date-fns'
+import { ptBR } from 'date-fns/locale'
+import Image from 'next/image'
 import { useRouter } from 'next/navigation'
+import { useSession } from 'next-auth/react'
+import { useEffect, useMemo, useState } from 'react'
+import { toast } from 'sonner'
 
+import { createBooking } from '../_actions/create-booking'
+import { getBookings } from '../_actions/get-bookings'
+import { BookingSummary } from './booking-summary'
+import { SignInDialog } from './sign-in-dialog'
+import { Button } from './ui/button'
+import { Calendar } from './ui/calendar'
+import { Card, CardContent } from './ui/card'
+import { Dialog, DialogContent } from './ui/dialog'
 import {
   Sheet,
   SheetContent,
@@ -14,16 +24,6 @@ import {
   SheetHeader,
   SheetTitle,
 } from './ui/sheet'
-import { Button } from './ui/button'
-import { Card, CardContent } from './ui/card'
-import { Calendar } from './ui/calendar'
-import { createBooking } from '../_actions/create-booking'
-import { toast } from 'sonner'
-import { useSession } from 'next-auth/react'
-import { getBookings } from '../_actions/get-bookings'
-import { Dialog, DialogContent } from './ui/dialog'
-import { SignInDialog } from './sign-in-dialog'
-import { BookingSummary } from './booking-summary'
 
 interface ServiceItemProps {
   service: BarbershopService

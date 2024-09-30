@@ -1,17 +1,16 @@
 'use client'
 
-import Link from 'next/link'
 import { Calendar, HomeIcon, LogIn, LogOut } from 'lucide-react'
 import Image from 'next/image'
+import Link from 'next/link'
+import { signOut, useSession } from 'next-auth/react'
 
 import { quickSearchOptions } from '../_constants/search'
-
-import { Button } from './ui/button'
-import { SheetClose, SheetContent, SheetHeader, SheetTitle } from './ui/sheet'
-import { Dialog, DialogContent, DialogTrigger } from './ui/dialog'
-import { signOut, useSession } from 'next-auth/react'
-import { Avatar, AvatarImage } from './ui/avatar'
 import { SignInDialog } from './sign-in-dialog'
+import { Avatar, AvatarImage } from './ui/avatar'
+import { Button } from './ui/button'
+import { Dialog, DialogContent, DialogTrigger } from './ui/dialog'
+import { SheetClose, SheetContent, SheetHeader, SheetTitle } from './ui/sheet'
 
 export function SidebarSheet() {
   const { data } = useSession()

@@ -3,8 +3,8 @@
 import { revalidatePath } from 'next/cache'
 import { getServerSession } from 'next-auth'
 
-import { db } from '../_lib/prisma'
 import { authOptions } from '../_lib/auth'
+import { db } from '../_lib/prisma'
 
 interface CreateBookingParams {
   serviceId: string

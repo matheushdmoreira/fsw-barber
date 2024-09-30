@@ -1,8 +1,8 @@
-import Image from 'next/image'
 import { Barbershop } from '@prisma/client'
+import Image from 'next/image'
 
-import { Card, CardContent } from './ui/card'
 import { Avatar, AvatarImage } from './ui/avatar'
+import { Card, CardContent } from './ui/card'
 
 interface BarbershopMapInfoProps {
   barbershop: Barbershop

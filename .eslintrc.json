@@ -3,10 +3,13 @@
     "@rocketseat/eslint-config/next", 
     "next/core-web-vitals"
   ],
+  "plugins": ["simple-import-sort"],
   "rules": {
+    "simple-import-sort/imports": "error",
     "no-unused-vars": "error",
     "react/react-in-jsx-scope": "off",
     "no-var": 0,
-    "@typescript-eslint/no-explicit-any": "off"
+    "@typescript-eslint/no-explicit-any": "off",
+    "import/no-anonymous-default-export": "off"
   }
 }

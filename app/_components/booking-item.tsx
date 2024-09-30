@@ -1,20 +1,16 @@
 'use client'
 
-import { useState } from 'react'
 import { Prisma } from '@prisma/client'
 import { isFuture } from 'date-fns'
+import { useState } from 'react'
+import { toast } from 'sonner'
 
 import { deleteBooking } from '../_actions/delete-booking'
+import { BarbershopMapInfo } from './barbershop-map-info'
+import { BookingItemCard } from './booking-item-card'
+import { BookingSummary } from './booking-summary'
+import { PhoneItem } from './phone-item'
 import { Badge } from './ui/badge'
-import {
-  Sheet,
-  SheetClose,
-  SheetContent,
-  SheetFooter,
-  SheetHeader,
-  SheetTitle,
-  SheetTrigger,
-} from './ui/sheet'
 import { Button } from './ui/button'
 import {
   Dialog,
@@ -26,12 +22,15 @@ import {
   DialogTitle,
   DialogTrigger,
 } from './ui/dialog'
-
-import { PhoneItem } from './phone-item'
-import { toast } from 'sonner'
-import { BookingSummary } from './booking-summary'
-import { BarbershopMapInfo } from './barbershop-map-info'
-import { BookingItemCard } from './booking-item-card'
+import {
+  Sheet,
+  SheetClose,
+  SheetContent,
+  SheetFooter,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from './ui/sheet'
 
 interface BookingItemProps {
   booking: Prisma.BookingGetPayload<{

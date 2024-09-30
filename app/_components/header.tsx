@@ -1,13 +1,13 @@
-import Image from 'next/image'
 import { MenuIcon } from 'lucide-react'
-
-import { Card, CardContent } from './ui/card'
-import { Button } from './ui/button'
-import { Sheet, SheetTrigger } from './ui/sheet'
-import { SidebarSheet } from './sidebar-sheet'
+import Image from 'next/image'
 import Link from 'next/link'
+
 import { Navbar } from './navbar'
 import { Search } from './search'
+import { SidebarSheet } from './sidebar-sheet'
+import { Button } from './ui/button'
+import { Card, CardContent } from './ui/card'
+import { Sheet, SheetTrigger } from './ui/sheet'
 
 interface HeaderProps {
   showSearch?: boolean

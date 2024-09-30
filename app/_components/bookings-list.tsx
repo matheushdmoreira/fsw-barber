@@ -1,16 +1,19 @@
 'use client'
 
-import { useEffect, useState } from 'react'
 import { Booking, Prisma } from '@prisma/client'
 import { isFuture } from 'date-fns'
+import { useEffect, useState } from 'react'
 import { toast } from 'sonner'
 
-import { BookingItem } from './booking-item'
-import { BookingSummary } from './booking-summary'
+import { deleteBooking } from '../_actions/delete-booking'
 import { BarbershopMapInfo } from './barbershop-map-info'
-import { PhoneItem } from './phone-item'
+import { BookingItem } from './booking-item'
 import { BookingItemDesktop } from './booking-item-desktop'
-
+import { BookingSummary } from './booking-summary'
+import { PhoneItem } from './phone-item'
+import { Badge } from './ui/badge'
+import { Button } from './ui/button'
+import { Card, CardContent } from './ui/card'
 import {
   Dialog,
   DialogClose,
@@ -21,10 +24,6 @@ import {
   DialogTitle,
   DialogTrigger,
 } from './ui/dialog'
-import { Badge } from './ui/badge'
-import { deleteBooking } from '../_actions/delete-booking'
-import { Button } from './ui/button'
-import { Card, CardContent } from './ui/card'
 
 type BookingInList = Prisma.BookingGetPayload<{
   include: {

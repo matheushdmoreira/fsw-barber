@@ -1,9 +1,15 @@
-import { Metadata } from 'next'
-import Image from 'next/image'
 import { format } from 'date-fns'
 import { ptBR } from 'date-fns/locale'
-import { getServerSession } from 'next-auth'
+import { Metadata } from 'next'
+import Image from 'next/image'
 import Link from 'next/link'
+import { getServerSession } from 'next-auth'
+
+import { BarbershopItem } from './_components/barbershop-item'
+import { BookingItem } from './_components/booking-item'
+import { Header } from './_components/header'
+import { Search } from './_components/search'
+import { Button } from './_components/ui/button'
 import {
   Carousel,
   CarouselContent,
@@ -11,19 +17,10 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from './_components/ui/carousel'
-
+import { quickSearchOptions } from './_constants/search'
+import { getConfirmedBookings } from './_data/get-confirmed-bookings'
 import { authOptions } from './_lib/auth'
 import { db } from './_lib/prisma'
-
-import { Button } from './_components/ui/button'
-
-import { BarbershopItem } from './_components/barbershop-item'
-import { quickSearchOptions } from './_constants/search'
-import { Header } from './_components/header'
-import { BookingItem } from './_components/booking-item'
-import { Search } from './_components/search'
-
-import { getConfirmedBookings } from './_data/get-confirmed-bookings'
 
 export const metadata: Metadata = {
   title: 'FSW Barber - Home',

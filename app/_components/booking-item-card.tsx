@@ -2,9 +2,9 @@ import { Prisma } from '@prisma/client'
 import { format, isFuture } from 'date-fns'
 import { ptBR } from 'date-fns/locale'
 
-import { Card, CardContent } from './ui/card'
 import { Avatar, AvatarImage } from './ui/avatar'
 import { Badge } from './ui/badge'
+import { Card, CardContent } from './ui/card'
 
 interface BookingItemProps {
   booking: Prisma.BookingGetPayload<{

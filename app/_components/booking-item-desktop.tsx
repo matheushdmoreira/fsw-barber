@@ -1,6 +1,7 @@
 'use client'
 
 import { Prisma } from '@prisma/client'
+
 import { BookingItemCard } from './booking-item-card'
 
 interface BookingItemProps {

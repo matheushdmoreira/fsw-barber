@@ -1,12 +1,14 @@
-import type { Metadata, ResolvingMetadata } from 'next'
 import { ChevronLeft, MapPinIcon, MenuIcon, StarIcon } from 'lucide-react'
+import type { Metadata, ResolvingMetadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
-
 import { notFound } from 'next/navigation'
 
-import { db } from '@/app/_lib/prisma'
-
+import { BarbershopMapInfo } from '@/app/_components/barbershop-map-info'
+import { Header } from '@/app/_components/header'
+import { PhoneItem } from '@/app/_components/phone-item'
+import { ServiceItem } from '@/app/_components/service-item'
+import { SidebarSheet } from '@/app/_components/sidebar-sheet'
 import { Button } from '@/app/_components/ui/button'
 import { Sheet, SheetTrigger } from '@/app/_components/ui/sheet'
 import {
@@ -15,12 +17,7 @@ import {
   TableCell,
   TableRow,
 } from '@/app/_components/ui/table'
-
-import { ServiceItem } from '@/app/_components/service-item'
-import { PhoneItem } from '@/app/_components/phone-item'
-import { SidebarSheet } from '@/app/_components/sidebar-sheet'
-import { Header } from '@/app/_components/header'
-import { BarbershopMapInfo } from '@/app/_components/barbershop-map-info'
+import { db } from '@/app/_lib/prisma'
 
 interface BarbershopPageProps {
   params: {
