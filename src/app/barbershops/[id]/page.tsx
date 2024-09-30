@@ -4,20 +4,15 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 
-import { BarbershopMapInfo } from '@/app/_components/barbershop-map-info'
-import { Header } from '@/app/_components/header'
-import { PhoneItem } from '@/app/_components/phone-item'
-import { ServiceItem } from '@/app/_components/service-item'
-import { SidebarSheet } from '@/app/_components/sidebar-sheet'
-import { Button } from '@/app/_components/ui/button'
-import { Sheet, SheetTrigger } from '@/app/_components/ui/sheet'
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TableRow,
-} from '@/app/_components/ui/table'
-import { db } from '@/app/_lib/prisma'
+import { BarbershopMapInfo } from '@/_components/barbershop-map-info'
+import { Header } from '@/_components/header'
+import { PhoneItem } from '@/_components/phone-item'
+import { ServiceItem } from '@/_components/service-item'
+import { SidebarSheet } from '@/_components/sidebar-sheet'
+import { Button } from '@/_components/ui/button'
+import { Sheet, SheetTrigger } from '@/_components/ui/sheet'
+import { Table, TableBody, TableCell, TableRow } from '@/_components/ui/table'
+import { db } from '@/_lib/prisma'
 
 interface BarbershopPageProps {
   params: {

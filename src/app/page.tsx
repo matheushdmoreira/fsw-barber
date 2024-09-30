@@ -5,22 +5,22 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { getServerSession } from 'next-auth'
 
-import { BarbershopItem } from './_components/barbershop-item'
-import { BookingItem } from './_components/booking-item'
-import { Header } from './_components/header'
-import { Search } from './_components/search'
-import { Button } from './_components/ui/button'
+import { BarbershopItem } from '@/_components/barbershop-item'
+import { BookingItem } from '@/_components/booking-item'
+import { Header } from '@/_components/header'
+import { Search } from '@/_components/search'
+import { Button } from '@/_components/ui/button'
 import {
   Carousel,
   CarouselContent,
   CarouselItem,
   CarouselNext,
   CarouselPrevious,
-} from './_components/ui/carousel'
-import { quickSearchOptions } from './_constants/search'
-import { getConfirmedBookings } from './_data/get-confirmed-bookings'
-import { authOptions } from './_lib/auth'
-import { db } from './_lib/prisma'
+} from '@/_components/ui/carousel'
+import { quickSearchOptions } from '@/_constants/search'
+import { getConfirmedBookings } from '@/_data/get-confirmed-bookings'
+import { authOptions } from '@/_lib/auth'
+import { db } from '@/_lib/prisma'
 
 export const metadata: Metadata = {
   title: 'FSW Barber - Home',

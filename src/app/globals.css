@@ -44,6 +44,6 @@
     @apply h-full;
   }
   body {
-    @apply bg-background text-foreground h-full;
+    @apply h-full bg-background text-foreground;
   }
 }
